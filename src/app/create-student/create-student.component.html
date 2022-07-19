@@ -1,0 +1,43 @@
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <div>
+        <input type="hidden" formControlName="id" value="{{id}}"/>
+    </div>
+    <div class="mb-3">
+        <label>Name</label>
+        <input type="text" formControlName="name" class="form-control" placeholder="Full Name" required>
+    </div>
+    <!-- <div *ngIf="studentForm.controls['name'].invalid && (studentForm.controls['name'].dirty || studentForm.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="studentForm.controls['name'].errors.required">
+          Name is required.
+        </div>
+    </div> -->
+
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="email" formControlName="email" class="form-control" placeholder="Email" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="name">Student Course</label>
+        <select class="form-control form-select form-select-lg mb-3"  formControlName="student_course" required>
+            <option style="color: gray;" value="" disabled selected >Select a course</option>
+            <option class="option" value="JavaScript" selected>JavaScript</option>
+            <option class="option" value="Java">Java</option>
+            <option class="option" value="C#">C#</option>
+            <option class="option" value="SQL">SQL</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Fees</label>
+        <input type="number" formControlName="fees" class="form-control" placeholder="Fees" required>
+    </div>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary" [disabled]="!studentForm.valid">Create</button>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <button type="reset" class="btn btn-danger">Reset</button>
+    </div>
+
+</form>
